@@ -1,5 +1,5 @@
 // The URL for the top ten API at nytimes.com
-const baseUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?';
+const baseUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?';
 // My API key for the NYTimes
 const key = 'Yi0wumY4zhrJQs4DwyjU55l28GxfW6l4';
 // The full URL for generating JSON using variables
@@ -27,15 +27,16 @@ function displayResults(json) {
 		const header = document.createElement('h3');
 		const listItem = document.createElement('li');
 		const anchor = document.createElement('a');
-		//const para = document.createElement('');
+		const para = document.createElement('p');
 
 		header.textContent = article.title;
-		listItem.textContent = article.abstract;
+		para.textContent = article.abstract;
 		anchor.href = article.url;
 		anchor.textContent = article.url;
 		list.appendChild(listItem);
 		listItem.appendChild(header);
 		listItem.appendChild(anchor);
+		listItem.appendChild(para);
 	});
 }
 

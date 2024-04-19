@@ -14,10 +14,20 @@ fetch(url).then(result => {
 	displayResults(json);
 });
 
+// Seperated appending an element to section to debug what was wrong
+const section = document.querySelector('section');
+const heading = document.createElement('h3');
+heading.textContent = 'append something';
+section.appendChild(heading);
+// Didn't upload updated index.html file to LAMP
+
 function displayResults(json) {
 	console.log(json);
 	articles = json.results;
 	console.log(articles); // {Note #2}
+	articles.forEach((article) => {
+		console.log(article);
+	});
 }
 
 

@@ -82,10 +82,46 @@ function displayResults2(json2) {
 	});
 }
 
+// Section Three ~ 10 days old 
+// The URL for the top ten API at nytimes.com
+const baseUrl3 = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?';
+// The full URL for generating JSON using variables
+let url3 = `${baseUrl3}api-key=${key}`;
+// Console logging the URL to verify it's ok
+console.log(url3);
 
+// Fetch top articles from the previous seven days {Note #1}
+fetch(url3).then(result3 => {
+	return result3.json();
+}).then(json3 => {
+	displayResults3(json3);
+});
 
+// Need a variable that targets something in the DOM
+const list3 = document.querySelector('#ten');
 
+function displayResults3(json3) {
+	console.log(json3);
+	articles3 = json3.results;
+	console.log(articles3); // {Note #2}
+	articles3.forEach((article) => {
+		console.log(article);
 
+		const header3 = document.createElement('h3');
+		const listItem3 = document.createElement('li');
+		const anchor3 = document.createElement('a');
+		const para3 = document.createElement('p');
+
+		header3.textContent = article.title;
+		para3.textContent = article.abstract;
+		anchor3.href = article.url;
+		anchor3.textContent = article.url;
+		list3.appendChild(listItem3);
+		listItem3.appendChild(header3);
+		listItem3.appendChild(anchor3);
+		listItem3.appendChild(para3);
+	});
+}
 
 // Additional Notes
 /*

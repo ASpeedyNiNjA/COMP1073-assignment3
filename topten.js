@@ -7,7 +7,29 @@ let url = `${baseUrl}api-key=${key}`;
 // Console logging the URL to verify it's ok
 console.log(url);
 
+// Fetch top articles from the previous seven days {Note #1}
 fetch(url).then(result => {
-	console.log(result.json())
-	//return result.json();
-})
+	return result.json();
+}).then(json => {
+	displayResults(json);
+});
+
+function displayResults(json) {
+	console.log(json);
+	articles = json.results;
+	console.log(articles); // {Note #2}
+}
+
+
+
+
+
+
+
+
+// Additional Notes
+/*
+#1: The 7.json? at the end of the baseUrl variable equates to seven days. From the documentation 1 & 10 are also options for one and ten days. What are the top articles from the last x days?
+
+#2: The array retrieved from the NYTimes json files returns 20 array items by default.
+*/

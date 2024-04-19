@@ -14,12 +14,8 @@ fetch(url).then(result => {
 	displayResults(json);
 });
 
-// Seperated appending an element to section to debug what was wrong
+// Need a variable that targets something in the DOM
 const section = document.querySelector('section');
-const heading = document.createElement('h3');
-heading.textContent = 'append something';
-section.appendChild(heading);
-// Didn't upload updated index.html file to LAMP
 
 function displayResults(json) {
 	console.log(json);
@@ -27,6 +23,10 @@ function displayResults(json) {
 	console.log(articles); // {Note #2}
 	articles.forEach((article) => {
 		console.log(article);
+
+		const heading = document.createElement('h3');
+		heading.textContent = article.abstract;
+		section.appendChild(heading);
 	});
 }
 
@@ -41,5 +41,5 @@ function displayResults(json) {
 /*
 #1: The 7.json? at the end of the baseUrl variable equates to seven days. From the documentation 1 & 10 are also options for one and ten days. What are the top articles from the last x days?
 
-#2: The array retrieved from the NYTimes json files returns 20 array items by default.
+#2: The array retrieved from the NYTimes json files returns 20 array objects by default.
 */

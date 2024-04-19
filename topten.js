@@ -15,7 +15,7 @@ fetch(url).then(result => {
 });
 
 // Need a variable that targets something in the DOM
-const section = document.querySelector('section');
+const list = document.querySelector('ol');
 
 function displayResults(json) {
 	console.log(json);
@@ -24,9 +24,9 @@ function displayResults(json) {
 	articles.forEach((article) => {
 		console.log(article);
 
-		const heading = document.createElement('h3');
-		heading.textContent = article.abstract;
-		section.appendChild(heading);
+		const listItem = document.createElement('li');
+		listItem.textContent = article.abstract;
+		list.appendChild(listItem);
 	});
 }
 

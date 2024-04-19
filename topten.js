@@ -24,9 +24,18 @@ function displayResults(json) {
 	articles.forEach((article) => {
 		console.log(article);
 
+		const header = document.createElement('h3');
 		const listItem = document.createElement('li');
+		const anchor = document.createElement('a');
+		//const para = document.createElement('');
+
+		header.textContent = article.title;
 		listItem.textContent = article.abstract;
+		anchor.href = article.url;
+		anchor.textContent = article.url;
 		list.appendChild(listItem);
+		listItem.appendChild(header);
+		listItem.appendChild(anchor);
 	});
 }
 

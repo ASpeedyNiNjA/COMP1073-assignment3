@@ -1,11 +1,11 @@
+// Section One ~ 1 day old
+
 // The URL for the top ten API at nytimes.com
 const baseUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?';
 // My API key for the NYTimes
 const key = 'Yi0wumY4zhrJQs4DwyjU55l28GxfW6l4';
 // The full URL for generating JSON using variables
 let url = `${baseUrl}api-key=${key}`;
-// Console logging the URL to verify it's ok
-console.log(url);
 
 // Fetch top articles from the previous seven days {Note #1}
 fetch(url).then(result => {
@@ -18,11 +18,8 @@ fetch(url).then(result => {
 const list = document.querySelector('ol');
 
 function displayResults(json) {
-	console.log(json);
 	articles = json.results;
-	console.log(articles); // {Note #2}
 	articles.forEach((article) => {
-		console.log(article);
 
 		const header = document.createElement('h3');
 		const listItem = document.createElement('li');
@@ -42,12 +39,11 @@ function displayResults(json) {
 
 
 // Section Two ~ 7 days old 
+
 // The URL for the top ten API at nytimes.com
 const baseUrl2 = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?';
 // The full URL for generating JSON using variables
 let url2 = `${baseUrl2}api-key=${key}`;
-// Console logging the URL to verify it's ok
-console.log(url2);
 
 // Fetch top articles from the previous seven days {Note #1}
 fetch(url2).then(result2 => {
@@ -60,11 +56,8 @@ fetch(url2).then(result2 => {
 const list2 = document.querySelector('#seven');
 
 function displayResults2(json2) {
-	console.log(json2);
 	articles2 = json2.results;
-	console.log(articles2); // {Note #2}
 	articles2.forEach((article) => {
-		console.log(article);
 
 		const header2 = document.createElement('h3');
 		const listItem2 = document.createElement('li');
@@ -82,13 +75,12 @@ function displayResults2(json2) {
 	});
 }
 
-// Section Three ~ 10 days old 
+// Section Three ~ 30 days old 
+
 // The URL for the top ten API at nytimes.com
-const baseUrl3 = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?';
+const baseUrl3 = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?';
 // The full URL for generating JSON using variables
 let url3 = `${baseUrl3}api-key=${key}`;
-// Console logging the URL to verify it's ok
-console.log(url3);
 
 // Fetch top articles from the previous seven days {Note #1}
 fetch(url3).then(result3 => {
@@ -98,14 +90,11 @@ fetch(url3).then(result3 => {
 });
 
 // Need a variable that targets something in the DOM
-const list3 = document.querySelector('#ten');
+const list3 = document.querySelector('#thirty');
 
 function displayResults3(json3) {
-	console.log(json3);
 	articles3 = json3.results;
-	console.log(articles3); // {Note #2}
 	articles3.forEach((article) => {
-		console.log(article);
 
 		const header3 = document.createElement('h3');
 		const listItem3 = document.createElement('li');
@@ -125,7 +114,14 @@ function displayResults3(json3) {
 
 // Additional Notes
 /*
-#1: The 7.json? at the end of the baseUrl variable equates to seven days. From the documentation 1 & 10 are also options for one and ten days. What are the top articles from the last x days?
+#1: The 7.json? at the end of the baseUrl variable equates to seven days. From the documentation 1 & 30 are also options for one and ten days. What are the top articles from the last x days?
 
 #2: The array retrieved from the NYTimes json files returns 20 array objects by default.
+*/
+
+// References
+/*
+New York Times : https://developer.nytimes.com/docs/most-popular-product/1/types/ViewedArticle
+New York Times : https://developer.nytimes.com/docs/most-popular-product/1/overview
+Georgian College : COMP 1073 Week 11 
 */
